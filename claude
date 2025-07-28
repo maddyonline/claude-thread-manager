@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+"""Drop-in replacement for claude command with thread management."""
+
+# Import and run the CLI directly
+from src.claude_thread_manager.cli import main
+
+if __name__ == "__main__":
+    main()
