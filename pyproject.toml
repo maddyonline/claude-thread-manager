@@ -24,9 +24,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your-username/claude-thread-manager"
-Repository = "https://github.com/your-username/claude-thread-manager.git"
-Issues = "https://github.com/your-username/claude-thread-manager/issues"
+Homepage = "https://github.com/maddyonline/claude-thread-manager"
+Repository = "https://github.com/maddyonline/claude-thread-manager.git"
+Issues = "https://github.com/maddyonline/claude-thread-manager/issues"
 
 [project.scripts]
 ct = "claude_thread_manager.cli:main"

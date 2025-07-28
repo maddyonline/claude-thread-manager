@@ -10,20 +10,56 @@ A stateless thread management wrapper for Claude CLI that provides persistent co
 ✅ **Smart session selection** - Finds the best session to resume  
 ✅ **Graceful fallback** - Works without THREAD_ID as normal claude  
 
-## Quick Start
+## Installation
+
+### Quick Installation with uv (Recommended)
 
 ```bash
-# Install with uv
-uv tool install --from git+https://github.com/your-username/claude-thread-manager ct
+# Install directly from the repository
+uv tool install git+https://github.com/maddyonline/claude-thread-manager
 
-# Use with threads
+# Or run without installation
+uvx --from git+https://github.com/maddyonline/claude-thread-manager ct -p "your message"
+```
+
+### Traditional Installation
+
+```bash
+# With pip
+pip install git+https://github.com/maddyonline/claude-thread-manager
+
+# From source
+git clone https://github.com/maddyonline/claude-thread-manager
+cd claude-thread-manager
+pip install -e .
+```
+
+## Usage
+
+### Method 1: Using the installed command
+```bash
 export THREAD_ID="my-feature"
 ct -p "help me implement authentication"
-ct -p "now add tests"  # Remembers context!
+ct -p "now add tests"
+```
 
-# Use without threads (normal claude)
-unset THREAD_ID  
-ct -p "what is 2+2"
+### Method 2: Create an alias for seamless integration
+Add to your shell config (`.bashrc`, `.zshrc`, etc.):
+```bash
+alias claude='ct'
+# Or if you prefer your existing claudee alias:
+alias claudee='ct'
+```
+
+Then use normally:
+```bash
+export THREAD_ID="my-feature"
+claude -p "your message"
+```
+
+### Method 3: Without THREAD_ID (falls back to normal claude)
+```bash
+ct -p "this runs normal claude"
 ```
 
 ## How It Works
@@ -48,11 +84,12 @@ ct -p "analyze this memory leak in the app"
 # Quick one-off without thread
 unset THREAD_ID
 ct -p "what is 2+2"
+
+# Using with alias
+alias claude='ct'
+export THREAD_ID="my-project"
+claude -p "help me debug this issue"
 ```
-
-## Installation
-
-See [INSTALLATION.md](INSTALLATION.md) for detailed installation instructions.
 
 ## Requirements
 
